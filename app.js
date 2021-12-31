@@ -110,7 +110,7 @@ const game = () => {
     //Is call all the inner function
     startGame();
     playMatch();
-  };
+};
   
-  //start the game function
-  game();
+//start the game function
+game();
