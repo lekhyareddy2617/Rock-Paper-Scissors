@@ -13,7 +13,7 @@ const game = () => {
       match.classList.add("fadeIn");
     });
   };
-  //Play Match
+  //play mmatch
   const playMatch = () => {
     const options = document.querySelectorAll(".options button");
     const playerHand = document.querySelector(".player-hand");
@@ -25,12 +25,12 @@ const game = () => {
         this.style.animation = "";
       });
     });
-    //Computer Options
+    //computer options
     const computerOptions = ["rock", "paper", "scissors"];
 
     options.forEach(option => {
       option.addEventListener("click", function() {
-        //Computer Choice
+        //computer choice
         const computerNumber = Math.floor(Math.random() * 3);  /*Math.random() always returns a number lower than 1; example 
         Math.random() * 10 returns a random integer from 0 to 9; Math.random generates number with decimal places 
         and Math.floor returns the number without decimal places*/
@@ -40,13 +40,12 @@ const game = () => {
         console.log(computerChoice);
 
         setTimeout(() => {
-          //Here is where we call compare hands
           compareHands(this.textContent, computerChoice);
-          //Update Images
+          //update images based on choice
           playerHand.src = `./assets/${this.textContent}.png`;
           computerHand.src = `./assets/${computerChoice}.png`;
         }, 2000);
-        //Animation
+        //animation
         playerHand.style.animation = "shakePlayer 2s ease";
         computerHand.style.animation = "shakeComputer 2s ease";
       });
@@ -61,14 +60,14 @@ const game = () => {
   };
 
   const compareHands = (playerChoice, computerChoice) => {
-    //Update Text
+    //update text
     const winner = document.querySelector(".winner");
-    //Checking for a tie
+    //tie
     if (playerChoice === computerChoice) {
       winner.textContent = "It is a tie";
       return;
     }
-    //Check for Rock
+    //for rock
     if (playerChoice === "rock") {
       if (computerChoice === "scissors") {
         winner.textContent = "Player Wins";
@@ -82,7 +81,7 @@ const game = () => {
         return;
       }
     }
-    //Check for Paper
+    //for paper
     if (playerChoice === "paper") {
       if (computerChoice === "scissors") {
         winner.textContent = "Computer Wins";
@@ -96,7 +95,7 @@ const game = () => {
         return;
       }
     }
-    //Check for Scissors
+    //check for scissors
     if (playerChoice === "scissors") {
       if (computerChoice === "rock") {
         winner.textContent = "Computer Wins";
@@ -112,7 +111,7 @@ const game = () => {
     }
   };
 
-  //Is call all the inner function
+  //call all the inner functions
   startGame();
   playMatch();
 
